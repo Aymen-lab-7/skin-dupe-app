@@ -1,1 +1,6 @@
 requirements.txt
+streamlit
+easyocr
+opencv-python-headless
+numpy
+Pillow
