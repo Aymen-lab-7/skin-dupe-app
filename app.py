@@ -42,3 +42,18 @@ if st.button("تحليل التطابق الكيميائي 🔍"):
         st.success("تم استخراج البيانات! التطبيق الآن جاهز للمقارنة.")
     else:
         st.error("يرجى رفع الصور أو كتابة المكونات أولاً.")
+# بعد جزء التحليل في الكود، أضف هذا الجزء:
+if ratio > 75:
+    st.success(f"✅ تطابق رائع بنسبة {ratio}%!")
+    
+    # روابط أفلييت (يمكنك جعلها ديناميكية لاحقاً)
+    search_query = budget_text.split(',')[0] # يأخذ أول اسم مادة للبحث
+    amazon_url = f"https://www.amazon.com/s?k={search_query}&tag=YOUR_TAG_HERE"
+    
+    st.markdown(f"""
+        <a href="{amazon_url}" target="_blank">
+            <button style="background-color: #FF9900; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%;">
+                🛒 اشتري البديل من أمازون بأقل سعر
+            </button>
+        </a>
+    """, unsafe_allow_html=True)
