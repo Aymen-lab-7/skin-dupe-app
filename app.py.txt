@@ -1,0 +1,26 @@
+import streamlit as st
+
+# إعدادات الصفحة الأساسية
+st.set_page_config(page_title="Skincare Dupe", page_icon="✨")
+
+# كود لجعل الموقع يتصرف كـ PWA (إضافة أيقونة وشاشة كاملة)
+st.markdown("""
+    <head>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/3163/3163195.png">
+    </head>
+    """, unsafe_allow_html=True)
+
+st.title("✨ Skincare Dupe Finder")
+st.write("قارن المكونات واكتشف البديل الأرخص فوراً.")
+
+# خانات إدخال البيانات
+high_end = st.text_area("مكونات المنتج الغالي:")
+budget = st.text_area("مكونات المنتج البديل:")
+
+if st.button("تحليل التطابق 🔍"):
+    if high_end and budget:
+        st.success("جاري التحليل... (هنا تظهر النسبة)")
+    else:
+        st.error("يرجى إدخال المكونات")
